@@ -8,7 +8,16 @@ except FileNotFoundError:
     
     
 new_name = input("请输入学生姓名：")
-new_score = int(input("请输入学生分数："))
+
+
+try:
+    new_score = int(input("请输入学生分数："))
+    if new_score < 0 or new_score > 100:
+        print("分数必须在 0 到 100 之间")
+        exit()
+except ValueError:
+    print("分数必须是数字")
+    exit()
 
 new_student = {
     "name": new_name,
